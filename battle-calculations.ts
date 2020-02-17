@@ -18,7 +18,7 @@ const utility = {
     }
   },
 
-  variance(value): number {
+  variance(value: number): number {
     const dividedVal: number = value / 8
     return Math.floor((Math.random() * dividedVal * 2) - dividedVal)
   }
