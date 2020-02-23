@@ -1,8 +1,42 @@
-import weapons from "./weapons"
-import battleCalculations from "./battle-calculations"
-import loop from "./loop"
+// import weapons from "./weapons"
+// import battleCalculations from "./battle-calculations"
+// import loop from "./loop"
 
-requestAnimationFrame(loop)
+import StateMachine from "./state-machine"
+
+const stateObj = {
+  initial: "booting",
+  states: [
+    {
+      name: "menu",
+      from: "booting",
+      to: "menu"
+    },
+    {
+      name: "play",
+      from: "menu",
+      to: "playing"
+    }
+  ],
+  methods: {
+    onMenu() {
+      console.log("menu transition")
+    },
+    onPlay() {
+      console.log("playing transition")
+    }
+  }
+}
+
+const fsm = new StateMachine(stateObj)
+
+// console.log(fsm)
+
+fsm.menu()
+
+fsm.menu()
+
+console.log(fsm.state)
 
 // console.log(battleCalculations)
 
