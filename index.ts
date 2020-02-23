@@ -7,36 +7,29 @@ import StateMachine from "./state-machine"
 const stateObj = {
   initial: "booting",
   states: [
-    {
-      name: "menu",
-      from: "booting",
-      to: "menu"
-    },
-    {
-      name: "play",
-      from: "menu",
-      to: "playing"
-    }
+    {name: "menu", from: "booting", to: "menu"},
+    {name: "play", from: "menu", to: "playing"},
+    {name: "death", from: "playing", to: "menu"}
   ],
   methods: {
     onMenu() {
-      console.log("menu transition")
+      console.log("Menu loaded.")
     },
     onPlay() {
-      console.log("playing transition")
+      console.log("Starting the game.")
+    },
+    onDeath() {
+      console.log("Player dead. going back to menu.")
     }
   }
 }
 
-const fsm = new StateMachine(stateObj)
+const globalFSM = new StateMachine(stateObj)
 
-// console.log(fsm)
-
-fsm.menu()
-
-fsm.menu()
-
-console.log(fsm.state)
+globalFSM.menu()
+globalFSM.play()
+globalFSM.death()
+console.log(globalFSM.state)
 
 // console.log(battleCalculations)
 
