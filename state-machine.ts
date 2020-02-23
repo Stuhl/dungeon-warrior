@@ -47,7 +47,7 @@ class StateMachine {
         const method = this.getMethod(name)
         method()
       } else {
-        console.warn("Invalid state transition. Cannot transition from " + from + " to " + to + ".")
+        console.warn("Invalid state transition. Cannot transition from " + this.state + " to " + to + ".")
       }
     }
   }
