@@ -5,11 +5,11 @@ let accumulator: number = 0;
 let now: number = 0
 let last: number = 0
 
-const convertMS = (ms): number => {
-  return +(ms / 1000).toFixed(4)
-}
+// const convertMS = (ms: number): number => {
+//   return +(ms / 1000).toFixed(4)
+// }
 
-const isFrameStep = (delta): boolean => {
+const isFrameStep = (delta: number): boolean => {
   accumulator += delta
   if (accumulator >= singleFrameLength) {
     accumulator = 0
@@ -17,7 +17,7 @@ const isFrameStep = (delta): boolean => {
   }
 }
 
-const loop = (ms): void => {
+const loop = (ms: number): void => {
   last = +ms.toFixed(3)
   const delta: number = +(last - now).toFixed(3)
   now = last
