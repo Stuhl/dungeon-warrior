@@ -1,11 +1,3 @@
-const wait = async (ms: number) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve()
-    }, ms)
-  })
-}
-
 class TextQueue {
   texts: string[]
 
@@ -13,9 +5,8 @@ class TextQueue {
     this.texts = []
   }
 
-  async dequeue() {
-    wait(500)
-    this.texts.shift()
+  dequeue() {
+    return this.texts.shift()
   }
 
   push(text: string): void {
