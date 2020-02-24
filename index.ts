@@ -2,34 +2,53 @@
 // import battleCalculations from "./battle-calculations"
 // import loop from "./loop"
 
-import StateMachine from "./state-machine"
+// import StateMachine from "./state-machine"
+//
+// const stateObj = {
+//   initial: "booting",
+//   states: [
+//     {name: "menu", from: "booting", to: "menu"},
+//     {name: "play", from: "menu", to: "playing"},
+//     {name: "death", from: "playing", to: "menu"}
+//   ],
+//   methods: {
+//     onMenu() {
+//       console.log("Menu loaded.")
+//     },
+//     onPlay() {
+//       console.log("Starting the game.")
+//     },
+//     onDeath() {
+//       console.log("Player dead. going back to menu.")
+//     }
+//   }
+// }
+//
+// const globalFSM = new StateMachine(stateObj)
+//
+// globalFSM.menu()
+// globalFSM.play()
+// globalFSM.death()
+// console.log(globalFSM.state)
 
-const stateObj = {
-  initial: "booting",
-  states: [
-    {name: "menu", from: "booting", to: "menu"},
-    {name: "play", from: "menu", to: "playing"},
-    {name: "death", from: "playing", to: "menu"}
-  ],
-  methods: {
-    onMenu() {
-      console.log("Menu loaded.")
-    },
-    onPlay() {
-      console.log("Starting the game.")
-    },
-    onDeath() {
-      console.log("Player dead. going back to menu.")
-    }
-  }
-}
 
-const globalFSM = new StateMachine(stateObj)
+import TextQueue from "./text-queue"
+import utility from "./utility"
 
-globalFSM.menu()
-globalFSM.play()
-globalFSM.death()
-console.log(globalFSM.state)
+const textQueue = new TextQueue()
+
+textQueue.push("Hello")
+textQueue.push("Welcome to Dungeon Warrior!")
+textQueue.push("This is just a test")
+textQueue.push("You got this amigo!")
+
+console.log(textQueue)
+
+textQueue.texts.forEach(async () => {
+  await utility.wait(1000)
+  const text = textQueue.dequeue()
+  console.log(text)
+})
 
 // console.log(battleCalculations)
 
