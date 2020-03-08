@@ -32,23 +32,38 @@
 // console.log(globalFSM.state)
 
 
+// import TextQueue from "./text-queue"
+// import utility from "./utility"
+//
+// const textQueue = new TextQueue()
+//
+// textQueue.add("Hello")
+// textQueue.add("Welcome to Dungeon Warrior!")
+// textQueue.add("This is just a test")
+// textQueue.add("You got this amigo!")
+//
+// console.log(textQueue)
+//
+// textQueue.texts.forEach(async () => {
+//   await utility.wait(1000)
+//   const text = textQueue.dequeue()
+//   console.log(text)
+// })
+
 import TextQueue from "./text-queue"
-import utility from "./utility"
 
-const textQueue = new TextQueue()
+const main = async () => {
+  const queue = new TextQueue()
 
-textQueue.push("Hello")
-textQueue.push("Welcome to Dungeon Warrior!")
-textQueue.push("This is just a test")
-textQueue.push("You got this amigo!")
+  queue.add("Hello")
+  queue.add("Welcome to Dungeon Warrior!")
+  queue.add("This is just a test")
+  queue.add("You got this amigo!")
 
-console.log(textQueue)
+  queue.dequeueAll(1000)
+}
 
-textQueue.texts.forEach(async () => {
-  await utility.wait(1000)
-  const text = textQueue.dequeue()
-  console.log(text)
-})
+main()
 
 // console.log(battleCalculations)
 
