@@ -13,7 +13,7 @@ class TextRenderer {
     const paragraph = document.createElement("p")
     const textNode = document.createTextNode(text)
 
-    paragraph.style.fontSize = "5em"
+    paragraph.style.fontSize = "2em"
     paragraph.appendChild(textNode)
     return paragraph
   }
