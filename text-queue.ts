@@ -13,8 +13,12 @@ class TextQueue {
     return Promise.resolve()
   }
 
-  async dequeue(ms: number = 500) {
+  async dequeueAfter(ms: number = 500): String {
     await this.wait(ms)
+    return this.texts.shift()
+  }
+
+  dequeue(): String {
     return this.texts.shift()
   }
 
