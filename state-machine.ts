@@ -19,6 +19,9 @@ class StateMachine {
     this.state = initial
     this.methods = methods
     this.generateStates(states)
+
+    // calls initial state method
+    this.getMethod(this.state)()
   }
 
   private generateStates(states: state[]) {
